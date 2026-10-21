@@ -7,16 +7,35 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <p class="people male" id="firstP">1</p>
+    <!-- <p class="people male" id="firstP">1</p>
     <p class="people female">2</p>
     <p>---男女分隔---</p>
     <p class="people male">1</p>
     <p class="people female">2</p>
 
+    <div class="teacher">David</div> -->
     <div class="teacher">David</div>
-    <div class="classroom">
-      <div class="teacher male">Tomas</div>
-      <div class="teacher female">Jill</div>
+
+    <h1 class="text-red">我是h1</h1>
+    <p>我是緊鄰 h1 的第一個 p</p>
+    <p>我是 h1 下面的第二個 p</p>
+
+    <div class="h1">這不是 h1, 但是看起來是 h1</div>
+
+    <div class="demo-descendant">
+      祖先
+      <p>祖先的子項目 p</p>
+      <div class="father">
+        父親
+        <p>父親的子項目 p</p>
+        <div class="son">
+          兒子
+          <div class="grandson">
+            孫子
+            <p class="target">我是 .demo-descendant 的後代（會被選到）</p>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>

@@ -24,3 +24,31 @@ p {
 .classroom .teacher.female {
   color: red;
 }
+
+h1 + p {
+  background: yellow;
+}
+
+* {
+  border: 1px solid green;
+}
+
+.demo-descendant > .father > p {
+  color: violet;
+}
+
+.teacher {
+  color: red !important;
+}
+
+.teacher {
+  color: blue !important;
+}
+
+.text-red {
+  color: red !important;
+}
+
+.h1 {
+  font-size: 32px;
+}
