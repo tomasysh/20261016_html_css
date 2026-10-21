@@ -1,0 +1,13 @@
+/* CSS 使用規則 */
+#firstP {
+  color: blue;
+}
+
+p {
+  color: cadetblue;
+  font-size: 24px;
+}
+
+ul {
+  list-style-type: square;
+}
