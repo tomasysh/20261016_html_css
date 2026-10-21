@@ -1,13 +1,10 @@
-/* CSS 使用規則 */
+/* 最高級 html inline style(直接寫在標籤上) */
+/* CSS 選取器(1, 0, 0): id */
 #firstP {
-  color: blue;
 }
-
+/* CSS 選取器(0, 1, 0): class */
+.male {
+}
+/* CSS 選取器(0, 0, 1): html元素 */
 p {
-  color: cadetblue;
-  font-size: 24px;
-}
-
-ul {
-  list-style-type: square;
 }
