@@ -14,3 +14,13 @@
 p {
   color: lightgray;
 }
+
+/* 簡單選擇器 */
+.teacher {
+  color: blue;
+}
+
+/* 組合選擇器 */
+.classroom .teacher.female {
+  color: red;
+}
