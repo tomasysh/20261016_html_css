@@ -1,3 +1,51 @@
-p {
-  list-style-type: circle;
+/* :where() limits each lesson to its preview without adding selector weight. */
+
+/* Element, class, and ID selectors have different specificity values. */
+:where(.cascade-demo) p {
+  color: #667085;
+}
+
+:where(.cascade-demo) .male {
+  color: #2563eb;
+}
+
+:where(.cascade-demo) .female {
+  color: #db2777;
+}
+
+:where(.cascade-demo) #firstP {
+  color: crimson;
+}
+
+/* The combination selector styles a matching descendant with both classes. */
+.classroom .teacher.female {
+  color: #b42318;
+}
+
+/* Two important declarations with equal weight: the later blue declaration wins. */
+:where(.classroom) .teacher {
+  color: #2563eb;
+}
+
+:where(.classroom) .teacher {
+  color: #dc2626 !important;
+}
+
+:where(.classroom) .teacher {
+  color: #2563eb !important;
+}
+
+/* The adjacent-sibling selector matches only the first paragraph after h3. */
+:where(.sibling-demo) h3 + p {
+  background-color: #fef3c7;
+}
+
+/* Child combinators match direct children; the nested grandson is excluded. */
+.demo-descendant > .father > p {
+  color: #7c3aed;
+}
+
+/* The universal selector border is intentionally contained in this preview. */
+:where(.universal-demo) * {
+  border: 1px solid #15803d;
 }

@@ -3,39 +3,410 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CSS DEMO</title>
+    <meta name="description" content="互動認識 CSS 選擇器與 Bootstrap 5 常用元件。" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <title>CSS 與元件示範｜我的前端學習履歷</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style2.css" />
   </head>
   <body>
-    <!-- <p class="people male" id="firstP">1</p>
-    <p class="people female">2</p>
-    <p>---男女分隔---</p>
-    <p class="people male">1</p>
-    <p class="people female">2</p>
+    <a class="visually-hidden-focusable skip-link" href="#main-content">跳到主要內容</a>
 
-    <div class="teacher">David</div> -->
-    <div class="teacher">David</div>
-
-    <h1 class="text-red">我是h1</h1>
-    <p>我是緊鄰 h1 的第一個 p</p>
-    <p>我是 h1 下面的第二個 p</p>
-
-    <div class="h1">這不是 h1, 但是看起來是 h1</div>
-
-    <div class="demo-descendant">
-      祖先
-      <p>祖先的子項目 p</p>
-      <div class="father">
-        父親
-        <p>父親的子項目 p</p>
-        <div class="son">
-          兒子
-          <div class="grandson">
-            孫子
-            <p class="target">我是 .demo-descendant 的後代（會被選到）</p>
+    <header>
+      <nav class="navbar navbar-expand-lg bg-white border-bottom sticky-top" aria-label="主要導覽">
+        <div class="container">
+          <a class="navbar-brand fw-bold" href="index.html">前端學習履歷</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#siteNavigation"
+            aria-controls="siteNavigation"
+            aria-expanded="false"
+            aria-label="切換導覽"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="siteNavigation">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item"><a class="nav-link" href="index.html">履歷首頁</a></li>
+              <li class="nav-item"><a class="nav-link" href="form.html">表單練習</a></li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="demo-css.html">CSS 與元件示範</a>
+              </li>
+            </ul>
           </div>
         </div>
+      </nav>
+    </header>
+
+    <main class="container py-4 py-lg-5" id="main-content">
+      <nav aria-label="麵包屑導覽" class="mb-4">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">履歷首頁</a></li>
+          <li class="breadcrumb-item active" aria-current="page">CSS 與元件示範</li>
+        </ol>
+      </nav>
+
+      <div class="row justify-content-center mb-4">
+        <div class="col-lg-9" data-reveal>
+          <span class="badge text-bg-primary rounded-pill mb-2">LEARNING LAB</span>
+          <h1 class="display-6 fw-bold">看見 CSS 如何選取，也動手操作 Bootstrap 元件</h1>
+          <p class="lead text-secondary mb-0">切換分頁、點擊元件，再展開程式碼，將畫面和 HTML class 對在一起。</p>
+        </div>
       </div>
-    </div>
+
+      <ul class="nav nav-tabs" id="learningTabs" role="tablist" aria-label="學習主題">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="css-tab" data-bs-toggle="tab" data-bs-target="#css-pane" type="button" role="tab" aria-controls="css-pane" aria-selected="true">
+            CSS 選擇器
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="bootstrap-tab" data-bs-toggle="tab" data-bs-target="#bootstrap-pane" type="button" role="tab" aria-controls="bootstrap-pane" aria-selected="false">
+            Bootstrap 元件
+          </button>
+        </li>
+      </ul>
+
+      <div class="tab-content border border-top-0 rounded-bottom bg-white p-3 p-md-4 p-lg-5 shadow-sm" id="learningTabContent">
+        <section class="tab-pane fade show active" id="css-pane" role="tabpanel" aria-labelledby="css-tab" tabindex="0">
+          <div class="section-heading mb-4">
+            <p class="section-kicker">CSS SELECTORS</p>
+            <h2 class="h3">每個範例都有自己的範圍</h2>
+            <p class="text-secondary mb-0">下列示範樣式只載入本頁；綠框範例不會套用到 Navbar 或 Bootstrap 元件。</p>
+          </div>
+
+          <div class="row g-4">
+            <div class="col-lg-6" data-reveal>
+              <article class="card h-100">
+                <div class="card-body">
+                  <h3 class="h5 card-title">ID、class、元素與 inline style</h3>
+                  <p class="small text-secondary">比對不同選擇器如何套用到相同元素。一般宣告中，HTML 標籤上的 inline style 優先於 ID、class 與元素規則；<code>!important</code> 會另外改變比較。</p>
+                  <div class="cascade-demo border rounded p-3 mb-3" aria-label="選擇器與宣告比較範例">
+                    <p id="firstP" class="male" style="color: #c2410c">這一段同時符合元素、class、ID 與 inline style</p>
+                    <p class="male">class 範例：male</p>
+                    <p class="female">class 範例：female</p>
+                    <p>元素選擇器範例：p</p>
+                  </div>
+                  <pre class="code-sample"><code>/* 元素 &lt; class &lt; ID &lt; inline style */
+:where(.cascade-demo) p { color: #667085; }
+.male { color: #2563eb; }
+#firstP { color: crimson; }</code></pre>
+                </div>
+              </article>
+            </div>
+
+            <div class="col-lg-6" data-reveal>
+              <article class="card h-100">
+                <div class="card-body">
+                  <h3 class="h5 card-title">組合 selector 與 !important</h3>
+                  <p class="small text-secondary">多個 class 可以同時套用。下面兩條 <code>.teacher</code> 規則都有 <code>!important</code>，權重相同時，後寫的藍色生效。</p>
+                  <div class="classroom border rounded p-3 mb-3">
+                    <p class="mb-2">classroom 後代中的 teacher female：</p>
+                    <div class="teacher female">David・範例教師</div>
+                  </div>
+                  <pre class="code-sample"><code>.classroom .teacher.female { color: #b42318; }
+:where(.classroom) .teacher { color: #2563eb; }
+:where(.classroom) .teacher { color: #dc2626 !important; }
+:where(.classroom) .teacher { color: #2563eb !important; }</code></pre>
+                </div>
+              </article>
+            </div>
+
+            <div class="col-lg-6" data-reveal>
+              <article class="card h-100">
+                <div class="card-body">
+                  <h3 class="h5 card-title">相鄰兄弟 selector</h3>
+                  <p class="small text-secondary"><code>h3 + p</code> 只選取緊接在標題後的第一個段落，下一段不符合。</p>
+                  <div class="sibling-demo border rounded p-3 mb-3">
+                    <h3 class="h6">這是小標題</h3>
+                    <p>我是緊接標題的第一段。</p>
+                    <p>我是第二段，不會有標記背景。</p>
+                  </div>
+                  <pre class="code-sample"><code>:where(.sibling-demo) h3 + p {
+  background-color: #fef3c7;
+}</code></pre>
+                </div>
+              </article>
+            </div>
+
+            <div class="col-lg-6" data-reveal>
+              <article class="card h-100">
+                <div class="card-body">
+                  <h3 class="h5 card-title">直接子元素與後代</h3>
+                  <p class="small text-secondary">大於符號 <code>&gt;</code> 只找直接子元素；孫子段落是後代，但不是 <code>.father</code> 的直接子元素。</p>
+                  <div class="demo-descendant border rounded p-3 mb-3">
+                    祖先
+                    <p>祖先的直接子段落，不符合這個 selector。</p>
+                    <div class="father">
+                      父親
+                      <p>父親的直接子段落，會被選到。</p>
+                      <div class="son">
+                        兒子
+                        <div class="grandson">
+                          孫子
+                          <p class="target">我是孫子段落，是後代但不是直接子元素。</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <pre class="code-sample"><code>.demo-descendant &gt; .father &gt; p {
+  color: #7c3aed;
+}</code></pre>
+                </div>
+              </article>
+            </div>
+
+            <div class="col-lg-6" data-reveal>
+              <article class="card h-100">
+                <div class="card-body">
+                  <h3 class="h5 card-title">通用 selector 與 Bootstrap 標題工具類別</h3>
+                  <p class="small text-secondary">通用 selector 會選取示範框裡的所有元素；Bootstrap 的 <code>.h1</code> 可套用標題外觀，但不會把 div 變成標題。</p>
+                  <div class="universal-demo border rounded p-3 mb-3">
+                    <p>通用 selector 的綠框只出現在這個例子。</p>
+                    <div class="h1 mb-0">外觀像標題的 div</div>
+                  </div>
+                  <pre class="code-sample"><code>:where(.universal-demo) * {
+  border: 1px solid #15803d;
+}
+
+&lt;div class="h1"&gt;外觀像標題的 div&lt;/div&gt;</code></pre>
+                </div>
+              </article>
+            </div>
+
+            <div class="col-lg-6" data-reveal>
+              <article class="card h-100">
+                <div class="card-body">
+                  <h3 class="h5 card-title">基本選取與屬性權重</h3>
+                  <p class="small text-secondary">選擇器權重常以 ID、class、元素三欄比較：inline style 和 <code>!important</code> 還有額外的 cascade 規則。</p>
+                  <ul class="list-group list-group-flush mb-3">
+                    <li class="list-group-item"><code>p</code> → (0, 0, 1)</li>
+                    <li class="list-group-item"><code>.male</code> → (0, 1, 0)</li>
+                    <li class="list-group-item"><code>#firstP</code> → (1, 0, 0)</li>
+                  </ul>
+                  <p class="small text-secondary mb-0">示範：先移除 inline style，重看 class 和 ID 的顏色差異。開啟瀏覽器 DevTools 的 Styles 面板可追蹤規則。</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="tab-pane fade" id="bootstrap-pane" role="tabpanel" aria-labelledby="bootstrap-tab" tabindex="0">
+          <div class="section-heading mb-4">
+            <p class="section-kicker">BOOTSTRAP COMPONENTS</p>
+            <h2 class="h3">直接操作，再看對應的 class</h2>
+            <p class="text-secondary mb-0">Navbar 已可在窄螢幕收合；以下示範卡片、清單、Accordion、Modal 和表單元件。</p>
+          </div>
+
+          <div class="row g-4">
+            <div class="col-lg-6" data-reveal>
+              <article class="card h-100 lift-card">
+                <div class="card-body">
+                  <div class="d-flex justify-content-between gap-2 mb-3">
+                    <h3 class="h5 card-title mb-0">Card + Badge + Button</h3>
+                    <span class="badge text-bg-success align-self-start">可操作</span>
+                  </div>
+                  <p class="card-text text-secondary">Card 適合把標題、說明和操作連結組成一塊內容。</p>
+                  <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#cardCode" aria-expanded="false" aria-controls="cardCode">查看程式碼</button>
+                  <div class="collapse mt-3" id="cardCode">
+                    <pre class="code-sample mb-0"><code>&lt;div class="card"&gt;
+  &lt;div class="card-body"&gt;
+    &lt;span class="badge text-bg-success"&gt;新內容&lt;/span&gt;
+    &lt;a class="btn btn-primary" href="#"&gt;打開&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <div class="col-lg-6" data-reveal>
+              <article class="card h-100">
+                <div class="card-body">
+                  <h3 class="h5 card-title">Alert + List group</h3>
+                  <div class="alert alert-primary" role="status">這是帶有語意顏色的 Bootstrap Alert。</div>
+                  <ul class="list-group">
+                    <li class="list-group-item">第一個清單項目</li>
+                    <li class="list-group-item">第二個清單項目</li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                      未讀範例<span class="badge text-bg-primary rounded-pill">2</span>
+                    </li>
+                  </ul>
+                </div>
+              </article>
+            </div>
+
+            <div class="col-lg-6" data-reveal>
+              <article class="card h-100">
+                <div class="card-body">
+                  <h3 class="h5 card-title">Accordion</h3>
+                  <p class="small text-secondary">標題按鈕透過 <code>data-bs-target</code> 指向可展開的面板。</p>
+                  <div class="accordion" id="componentAccordion">
+                    <div class="accordion-item">
+                      <h4 class="accordion-header" id="componentAccordionHeading">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#componentAccordionPanel" aria-expanded="true" aria-controls="componentAccordionPanel">
+                          展開互動內容
+                        </button>
+                      </h4>
+                      <div id="componentAccordionPanel" class="accordion-collapse collapse show" aria-labelledby="componentAccordionHeading" data-bs-parent="#componentAccordion">
+                        <div class="accordion-body">Accordion 也可以用來整理常見問題、課程章節和說明文字。</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <div class="col-lg-6" data-reveal>
+              <article class="card h-100">
+                <div class="card-body">
+                  <h3 class="h5 card-title">Modal 對話框</h3>
+                  <p class="card-text text-secondary">用按鈕開啟，透過關閉按鈕、Escape 或背景區域關閉。</p>
+                  <button class="btn btn-outline-primary" type="button" data-bs-toggle="modal" data-bs-target="#learningModal">開啟學習提示</button>
+                </div>
+              </article>
+            </div>
+
+            <div class="col-lg-6" data-reveal>
+              <article class="card h-100">
+                <div class="card-body">
+                  <h3 class="h5 card-title">Form select + Form check</h3>
+                  <label for="componentTopic" class="form-label">選擇一個練習主題</label>
+                  <select class="form-select mb-3" id="componentTopic">
+                    <option selected>請選擇</option>
+                    <option value="grid">Grid 排版</option>
+                    <option value="form">表單欄位</option>
+                    <option value="component">Bootstrap 元件</option>
+                  </select>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="componentCheck" />
+                    <label class="form-check-label" for="componentCheck">標記為已練習</label>
+                  </div>
+                  <pre class="code-sample mt-3 mb-0"><code>&lt;select class="form-select"&gt;...&lt;/select&gt;
+&lt;input class="form-check-input" type="checkbox"&gt;</code></pre>
+                </div>
+              </article>
+            </div>
+
+            <div class="col-lg-6" data-reveal>
+              <article class="card h-100">
+                <div class="card-body">
+                  <h3 class="h5 card-title">按鈕尺寸與狀態</h3>
+                  <p class="small text-secondary">修改色彩、大小與 outline 樣式，讓主要和次要動作清楚區分。</p>
+                  <div class="d-flex flex-wrap align-items-center gap-2">
+                    <button class="btn btn-primary btn-sm" type="button">小型按鈕</button>
+                    <button class="btn btn-outline-secondary" type="button">次要動作</button>
+                    <button class="btn btn-success" type="button">完成</button>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="modal fade" id="learningModal" tabindex="-1" aria-labelledby="learningModalTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h2 class="modal-title fs-5" id="learningModalTitle">試著檢查元件結構</h2>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="關閉"></button>
+                </div>
+                <div class="modal-body">
+                  <p>在 DevTools 中找到 <code>.modal</code>、<code>.modal-dialog</code> 和 <code>.modal-content</code>，看看它們如何組成對話框。</p>
+                  <p class="mb-0">Bootstrap 的 JavaScript bundle 負責開啟、關閉、焦點管理與轉場。</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary" data-bs-dismiss="modal">知道了</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <section class="mt-5" aria-labelledby="component-notes-title">
+        <div class="section-heading mb-3" data-reveal>
+          <p class="section-kicker">BOOTSTRAP NOTES</p>
+          <h2 class="h3" id="component-notes-title">本頁 Bootstrap 重點</h2>
+          <p class="text-secondary mb-0">看一下互動元件的按鈕如何指向要切換的內容。</p>
+        </div>
+        <div class="accordion" id="labLessons" data-reveal>
+          <div class="accordion-item">
+            <h3 class="accordion-header" id="labTabsHeading">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#labTabsLesson" aria-expanded="true" aria-controls="labTabsLesson">
+                Tabs 分頁與 ARIA 狀態
+              </button>
+            </h3>
+            <div id="labTabsLesson" class="accordion-collapse collapse show" aria-labelledby="labTabsHeading" data-bs-parent="#labLessons">
+              <div class="accordion-body">
+                <p>每個分頁按鈕透過 <code>data-bs-target</code> 對應一個 panel；Bootstrap 會更新選取狀態。保留 <code>role</code>、<code>aria-controls</code> 與 <code>aria-selected</code>，讓輔助技術也能辨認分頁。</p>
+                <pre class="code-sample"><code>&lt;button class="nav-link" data-bs-toggle="tab"
+        data-bs-target="#profile-pane" role="tab"
+        aria-controls="profile-pane" aria-selected="false"&gt;
+  個人資料
+&lt;/button&gt;</code></pre>
+                <a href="https://getbootstrap.com/docs/5.3/components/navs-tabs/" target="_blank" rel="noreferrer">閱讀 Tabs 官方文件</a>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h3 class="accordion-header" id="labCollapseHeading">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#labCollapseLesson" aria-expanded="false" aria-controls="labCollapseLesson">
+                Collapse、Accordion 與 Modal
+              </button>
+            </h3>
+            <div id="labCollapseLesson" class="accordion-collapse collapse" aria-labelledby="labCollapseHeading" data-bs-parent="#labLessons">
+              <div class="accordion-body">
+                <p>Collapse 按鈕以 <code>data-bs-target</code> 指向內容的 ID；Accordion 再用同一個 <code>data-bs-parent</code> 管理同組面板。Modal 使用另一組觸發與關閉屬性。</p>
+                <pre class="code-sample"><code>&lt;button data-bs-toggle="collapse"
+        data-bs-target="#more-info"&gt;查看說明&lt;/button&gt;
+&lt;div id="more-info" class="collapse"&gt;說明內容&lt;/div&gt;</code></pre>
+                <a href="https://getbootstrap.com/docs/5.3/components/collapse/" target="_blank" rel="noreferrer">閱讀 Collapse 官方文件</a>
+                <span class="mx-1" aria-hidden="true">·</span>
+                <a href="https://getbootstrap.com/docs/5.3/components/modal/" target="_blank" rel="noreferrer">閱讀 Modal 官方文件</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mt-5" aria-labelledby="lab-notes-title">
+        <div class="card border-primary-subtle" data-reveal>
+          <div class="card-body d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3">
+            <div>
+              <p class="section-kicker mb-1">KEEP PRACTICING</p>
+              <h2 class="h4 card-title mb-1" id="lab-notes-title">把範例換成你的內容</h2>
+              <p class="card-text text-secondary mb-0">先試著調整 Bootstrap class，再用 DevTools 查看 CSS 規則與權重。</p>
+            </div>
+            <a class="btn btn-outline-primary flex-shrink-0" href="form.html">前往表單練習</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer border-top bg-white py-4 mt-5">
+      <div class="container d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center gap-2">
+        <p class="mb-0 text-secondary">CSS 與元件示範・Bootstrap 5 練習</p>
+        <div class="d-flex flex-wrap gap-3">
+          <a href="index.html">履歷首頁</a>
+          <a href="form.html">表單練習</a>
+          <a href="#main-content">回到頁首</a>
+        </div>
+      </div>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js"></script>
   </body>
 </html>

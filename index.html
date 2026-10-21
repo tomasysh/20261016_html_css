@@ -3,79 +3,285 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>我的履歷</title>
+    <meta
+      name="description"
+      content="一份履歷與前端學習練習，示範 Bootstrap 5 的響應式版面與常用元件。"
+    />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <title>我的前端學習履歷</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="style2.css" />
   </head>
   <body>
-    <!-- <header>
-      <h1>Hello World</h1>
-      <a href="#contact">聯絡資訊</a>
-    </header> -->
+    <a class="visually-hidden-focusable skip-link" href="#main-content">跳到主要內容</a>
+
     <header>
-      <nav>
-        <ul>
-          <li>
-            <a href="#basicInfo">基本資料</a>
-          </li>
-          <li>
-            <a href="#workExperience">工作經歷</a>
-          </li>
-          <li>
-            <a href="#workSkills">工作技能</a>
-          </li>
-          <li>
-            <a href="#education">學歷</a>
-          </li>
-          <li>
-            <a href="#contact">聯絡資訊</a>
-          </li>
-        </ul>
+      <nav class="navbar navbar-expand-lg bg-white border-bottom sticky-top" aria-label="主要導覽">
+        <div class="container">
+          <a class="navbar-brand fw-bold" href="index.html">前端學習履歷</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#siteNavigation"
+            aria-controls="siteNavigation"
+            aria-expanded="false"
+            aria-label="切換導覽"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="siteNavigation">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="index.html">履歷首頁</a>
+              </li>
+              <li class="nav-item"><a class="nav-link" href="form.html">表單練習</a></li>
+              <li class="nav-item"><a class="nav-link" href="demo-css.html">CSS 與元件示範</a></li>
+            </ul>
+          </div>
+        </div>
       </nav>
     </header>
-    <main>
-      <a href="https://www.google.com" target="_blank"> Google </a>
-      <img
-        title="FX 戰士久留美"
-        alt="FX 戰士久留美"
-        src="https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c0/FX_Fighter_Kurumi-chan_Animation_logo.svg/250px-FX_Fighter_Kurumi-chan_Animation_logo.svg.png?utm_source=zh.wikipedia.org&utm_campaign=parser&utm_content=thumbnail"
-      />
-      <!-- <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam nemo
-        vel ut nostrum harum ratione ea facilis nam quisquam est earum hic
-        pariatur eaque iste voluptate eveniet molestias ullam in, repudiandae
-        minus magnam dolorem rem?
-      </p> -->
-      <p id="firstP" style="color: red">
-        Consequuntur quas accusantium mollitia voluptate, facilis porro numquam
-        fugiat illum recusandae vel officia rerum vero molestiae hic. Voluptatum
-        optio laborum aperiam saepe. Error facilis, deleniti deserunt ab vitae,
-        neque dignissimos recusandae ipsum sapiente dolorum fugit eius aliquid
-        doloribus, beatae consequuntur iste hic. Laudantium quas deserunt
-        tenetur hic accusantium ullam ex tempora perspiciatis totam molestias
-        placeat cumque harum ut id eum error ea rem, soluta assumenda.
-      </p>
-      <hr />
-      <p>第二個段落</p>
-      <p>第三個段落</p>
-      <article>
-        <p>西林記者採訪到曾博恩，他做出以下方面。</p>
-        <blockquote
-          cite="https://www.msn.com/zh-tw/news/other/%E4%B8%8D%E5%8F%AA2800%E8%90%AC-%E6%97%85%E9%81%8A%E8%B2%BB-%E5%B7%A5%E7%A8%8B%E5%B8%AB%E8%A9%A6%E7%AE%97-%E9%A4%8A%E5%BE%90%E4%BD%B3%E9%9D%925%E5%B9%B4-%E7%B8%BD%E8%8A%B1%E8%B2%BB-%E8%AB%8B%E8%BE%AD%E5%83%91%E5%A7%94%E6%9C%83%E4%BA%8B%E6%83%85%E9%82%84%E6%B2%92%E5%AE%8C/ar-AA2elQPJ?ocid=msedgntp&pc=U531&cvid=6ad1b9d8d821412d969d50e1b9ef2895&ei=14"
-        >
-          <p>愈罵，她就愈是訂機票玩給你看 ——某工程師</p>
-        </blockquote>
-        <address>這篇文章作者的聯絡資訊</address>
-      </article>
+
+    <main id="main-content">
+      <section class="container py-5" aria-labelledby="page-title">
+        <div class="row align-items-center g-4 g-lg-5">
+          <div class="col-lg-7" data-reveal>
+            <span class="badge text-bg-primary rounded-pill mb-3">履歷範本・Bootstrap 5 練習</span>
+            <h1 class="display-4 fw-bold text-body-emphasis mb-3" id="page-title">
+              把學習過程，整理成看得見的成果。
+            </h1>
+            <p class="lead text-secondary mb-4">
+              這是一份可自行修改的前端學習履歷，也是一個用來認識 Bootstrap 版面、工具類別與元件的練習網站。
+            </p>
+            <div class="d-flex flex-wrap gap-2">
+              <a class="btn btn-primary btn-lg" href="#basicInfo">瀏覽履歷</a>
+              <a class="btn btn-outline-primary btn-lg" href="demo-css.html">開始看元件範例</a>
+            </div>
+          </div>
+          <div class="col-lg-5" data-reveal>
+            <div class="card border-0 shadow-sm lift-card">
+              <div class="card-body p-4 p-lg-5">
+                <p class="text-primary fw-semibold mb-2">正在練習</p>
+                <h2 class="h3 card-title mb-3">從結構到互動，一步一步完成頁面</h2>
+                <p class="card-text text-secondary mb-4">
+                  先用 Grid 排版，再加入表單、導覽列和可操作元件；所有範例都可以直接在頁面上試用。
+                </p>
+                <div class="d-flex flex-wrap gap-2" aria-label="練習主題">
+                  <span class="badge text-bg-light border">HTML</span>
+                  <span class="badge text-bg-light border">CSS</span>
+                  <span class="badge text-bg-light border">Bootstrap</span>
+                  <span class="badge text-bg-light border">JavaScript</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <nav class="container pb-4" aria-label="履歷章節">
+        <div class="nav nav-pills flex-wrap gap-2">
+          <a class="nav-link" href="#basicInfo">基本資料</a>
+          <a class="nav-link" href="#workExperience">經歷與作品</a>
+          <a class="nav-link" href="#workSkills">技能</a>
+          <a class="nav-link" href="#education">學歷</a>
+          <a class="nav-link" href="#contact">聯絡資訊</a>
+        </div>
+      </nav>
+
+      <div class="container pb-5">
+        <section class="py-4" id="basicInfo" aria-labelledby="basic-info-title">
+          <div class="row g-4 align-items-stretch">
+            <div class="col-lg-4" data-reveal>
+              <div class="section-heading h-100">
+                <p class="section-kicker">01 / PROFILE</p>
+                <h2 class="h2" id="basic-info-title">基本資料</h2>
+                <p class="text-secondary mb-0">把這段範例自我介紹換成你的姓名、目標和個人特色。</p>
+              </div>
+            </div>
+            <div class="col-lg-8" data-reveal>
+              <div class="card h-100 lift-card">
+                <div class="card-body p-4">
+                  <h3 class="h5 card-title">自我介紹｜範例內容</h3>
+                  <p class="card-text text-secondary mb-0">
+                    我正在累積 HTML、CSS 與 Bootstrap 的實作經驗，喜歡把學到的技巧整理成清楚、易用的網頁。這裡的文字可以直接替換成你的自我介紹。
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="py-4" id="workExperience" aria-labelledby="experience-title">
+          <div class="d-flex flex-wrap align-items-end justify-content-between gap-3 mb-3" data-reveal>
+            <div class="section-heading">
+              <p class="section-kicker">02 / EXPERIENCE</p>
+              <h2 class="h2 mb-0" id="experience-title">經歷與作品</h2>
+            </div>
+            <span class="badge rounded-pill text-bg-warning">範例內容，請替換</span>
+          </div>
+          <div class="row g-3">
+            <div class="col-md-6" data-reveal>
+              <article class="card h-100 lift-card">
+                <div class="card-body p-4">
+                  <div class="d-flex justify-content-between align-items-start gap-2 mb-3">
+                    <h3 class="h5 card-title mb-0">個人練習網站</h3>
+                    <span class="badge text-bg-primary">練習專案</span>
+                  </div>
+                  <p class="card-text text-secondary">
+                    使用語意化 HTML 建立頁面結構，並以 Bootstrap Grid、Card 和表單元件完成響應式版面。
+                  </p>
+                  <a class="card-link" href="demo-css.html">查看本網站的元件示範</a>
+                </div>
+              </article>
+            </div>
+            <div class="col-md-6" data-reveal>
+              <article class="card h-100 lift-card">
+                <div class="card-body p-4">
+                  <h3 class="h5 card-title">工作或其他作品</h3>
+                  <p class="card-text text-secondary mb-0">
+                    請填入你的職稱、參與期間、負責事項與成果；若是作品，附上專案目標與你完成的部分。
+                  </p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="py-4" id="workSkills" aria-labelledby="skills-title">
+          <div class="row g-4">
+            <div class="col-lg-4" data-reveal>
+              <div class="section-heading">
+                <p class="section-kicker">03 / SKILLS</p>
+                <h2 class="h2 mb-0" id="skills-title">工作技能</h2>
+              </div>
+            </div>
+            <div class="col-lg-8" data-reveal>
+              <div class="list-group">
+                <div class="list-group-item p-3">
+                  <h3 class="h6 mb-1">HTML</h3>
+                  <p class="text-secondary mb-0">語意化結構、表單欄位、連結與無障礙標籤。</p>
+                </div>
+                <div class="list-group-item p-3">
+                  <h3 class="h6 mb-1">CSS 與 Bootstrap</h3>
+                  <p class="text-secondary mb-0">選擇器、響應式 Grid、間距工具類別與常用元件。</p>
+                </div>
+                <div class="list-group-item p-3">
+                  <h3 class="h6 mb-1">JavaScript</h3>
+                  <p class="text-secondary mb-0">表單事件、Bootstrap 元件互動與瀏覽器 API 練習。</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="py-4" id="education" aria-labelledby="education-title">
+          <div class="row g-4">
+            <div class="col-lg-4" data-reveal>
+              <div class="section-heading">
+                <p class="section-kicker">04 / EDUCATION</p>
+                <h2 class="h2 mb-0" id="education-title">學歷</h2>
+              </div>
+            </div>
+            <div class="col-lg-8" data-reveal>
+              <div class="alert alert-primary mb-0" role="note">
+                <span class="fw-semibold">你的學校與科系</span>
+                <span>｜請替換為實際學歷，並可補上畢業年份或相關課程。</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="py-4" id="contact" aria-labelledby="contact-title">
+          <div class="row g-4 align-items-center">
+            <div class="col-lg-7" data-reveal>
+              <p class="section-kicker">05 / CONTACT</p>
+              <h2 class="h2" id="contact-title">保持聯絡</h2>
+              <p class="text-secondary mb-lg-0">履歷中的聯絡方式請確認是你願意公開的資訊。</p>
+            </div>
+            <div class="col-lg-5" data-reveal>
+              <div class="card border-primary-subtle lift-card">
+                <div class="card-body p-4">
+                  <h3 class="h5 card-title">電子郵件</h3>
+                  <a href="mailto:tomasysh@gmail.com">tomasysh@gmail.com</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="py-4" aria-labelledby="learning-notes-title">
+          <div class="section-heading mb-3" data-reveal>
+            <p class="section-kicker">BOOTSTRAP NOTES</p>
+            <h2 class="h3" id="learning-notes-title">本頁 Bootstrap 重點</h2>
+            <p class="text-secondary mb-0">打開範例，對照這一頁實際使用的 class。</p>
+          </div>
+          <div class="accordion" id="homeLessons" data-reveal>
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="homeGridHeading">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#homeGridLesson" aria-expanded="true" aria-controls="homeGridLesson">
+                  Grid、容器與間距工具類別
+                </button>
+              </h3>
+              <div id="homeGridLesson" class="accordion-collapse collapse show" aria-labelledby="homeGridHeading" data-bs-parent="#homeLessons">
+                <div class="accordion-body">
+                  <p><code>container</code> 限制內容寬度；<code>row</code> 與 <code>col-lg-*</code> 建立欄位；<code>g-4</code> 調整欄間距。</p>
+                  <pre class="code-sample"><code>&lt;div class="container"&gt;
+  &lt;div class="row g-4"&gt;
+    &lt;div class="col-lg-7"&gt;主要內容&lt;/div&gt;
+    &lt;div class="col-lg-5"&gt;補充內容&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                  <a href="https://getbootstrap.com/docs/5.3/layout/grid/" target="_blank" rel="noreferrer">閱讀 Bootstrap Grid 官方文件</a>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="homeCardHeading">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#homeCardLesson" aria-expanded="false" aria-controls="homeCardLesson">
+                  Card、Badge 與按鈕
+                </button>
+              </h3>
+              <div id="homeCardLesson" class="accordion-collapse collapse" aria-labelledby="homeCardHeading" data-bs-parent="#homeLessons">
+                <div class="accordion-body">
+                  <p>Card 組織一段內容，Badge 表示分類，Button class 可建立主要或次要操作。</p>
+                  <pre class="code-sample"><code>&lt;article class="card"&gt;
+  &lt;div class="card-body"&gt;
+    &lt;span class="badge text-bg-primary"&gt;練習專案&lt;/span&gt;
+    &lt;h3 class="card-title"&gt;作品名稱&lt;/h3&gt;
+    &lt;a class="btn btn-outline-primary" href="#"&gt;了解更多&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/article&gt;</code></pre>
+                  <a href="https://getbootstrap.com/docs/5.3/components/card/" target="_blank" rel="noreferrer">閱讀 Bootstrap Card 官方文件</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
     </main>
-    <footer id="contact" style="height: 1000px; background-color: beige">
-      <h2>這個網頁作者的聯絡資訊</h2>
-      <address>
-        <p>
-          <a href="mailto:tomasysh@gmail.com">電子郵件：tomasysh@gmail.com</a>
-        </p>
-        <p><a href="tel:+12321321321">電話：1232113123</a></p>
-      </address>
+
+    <footer class="site-footer border-top bg-white py-4">
+      <div class="container d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center gap-2">
+        <p class="mb-0 text-secondary">我的前端學習履歷・Bootstrap 5 練習</p>
+        <div class="d-flex flex-wrap gap-3">
+          <a href="form.html">表單練習</a>
+          <a href="demo-css.html">CSS 與元件示範</a>
+          <a href="#main-content">回到頁首</a>
+        </div>
+      </div>
     </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js"></script>
   </body>
 </html>
