@@ -1,10 +1,16 @@
 /* 最高級 html inline style(直接寫在標籤上) */
 /* CSS 選取器(1, 0, 0): id */
 #firstP {
+  color: crimson;
 }
 /* CSS 選取器(0, 1, 0): class */
 .male {
+  color: blue;
+}
+.female {
+  color: pink;
 }
 /* CSS 選取器(0, 0, 1): html元素 */
 p {
+  color: lightgray;
 }
